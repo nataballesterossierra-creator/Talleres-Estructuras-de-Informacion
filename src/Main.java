@@ -18,8 +18,42 @@ public class Main {
 
         int[] arreglocon0 = {0, 1, 0, 3, 12};
         move0end(arreglocon0);
-        System.out.println("Arreglo con ceros movidos al final: ");
+        System.out.print("Arreglo con ceros movidos al final: ");
+        for (int i = 0; i < arreglocon0.length; i++) {
+            System.out.print(arreglocon0[i] + " ");
+        }
+        System.out.println();
 
+        // ---------- LISTAS ENLAZADAS ----------
+        System.out.println();
+        ListaEnlazada lista = new ListaEnlazada();
+        lista.insertAtEnd(1);
+        lista.insertAtEnd(1);
+        lista.insertAtEnd(2);
+        lista.insertAtEnd(3);
+        lista.insertAtEnd(3);
+        System.out.print("Lista original: ");
+        lista.imprimir();
+
+        lista.eliminarDuplicados();
+        System.out.print("Lista sin duplicados: ");
+        lista.imprimir();
+
+        Nodo n = lista.nodoDesdeElFinal(2);
+        System.out.println("Nodo 2 desde el final: " + (n != null ? n.dato : "no existe"));
+
+        lista.invertir();
+        System.out.print("Lista invertida: ");
+        lista.imprimir();
+
+        ListaEnlazada lista2 = new ListaEnlazada();
+        lista2.insertAtEnd(1);
+        lista2.insertAtEnd(2);
+        lista2.insertAtEnd(3);
+        System.out.println("Tiene bucle (sin ciclo): " + lista2.detectarBucle());
+
+        lista2.cabeza.siguiente.siguiente.siguiente = lista2.cabeza; // crea el ciclo
+        System.out.println("Tiene bucle (con ciclo): " + lista2.detectarBucle());
     }
 
     /*buscar y devolver indice*/
@@ -72,7 +106,7 @@ public class Main {
     /* ==========================================
       LISTAS ENLASADAS
       ========================================== */
-    class Nodo {
+    static class Nodo {
         int dato;
         Nodo siguiente;
 
@@ -81,7 +115,7 @@ public class Main {
         }
     }
 
-    class ListaEnlazada {
+    static class ListaEnlazada {
         Nodo cabeza;
 
         /* RETO 1: InsertAtEnd (Insertar al Final) */
