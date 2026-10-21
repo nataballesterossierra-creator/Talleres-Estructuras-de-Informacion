@@ -14,6 +14,12 @@ public class Main {
         for(int i=0; i<arreglo.length; i++){
             System.out.print(arreglo[i]+" ");
         }
+        System.out.println();
+
+         int[]arreglocon0 ={0,1,0,3,12};
+         move0end(arreglocon0);
+        System.out.println("Arreglo con ceros movidos al final: ");
+
     }
 
     /*buscar y devolver indice*/
@@ -51,14 +57,14 @@ public class Main {
 
     /*mover ceros al final (0,10,0,3,12) -> (1,3,12,0,0*)*/
     public static int[] move0end(int[] arreglo) {
-        int count = 0;
+        int idxNoCero = 0;
         for (int i = 0; i < arreglo.length; i++) {
             if (arreglo[i] != 0) {
-                arreglo[count++] = arreglo[i];
+                arreglo[idxNoCero++] = arreglo[i];
             }
         }
-        while (count < arreglo.length) {
-            arreglo[count++] = 0;
+        while (idxNoCero < arreglo.length) {
+            arreglo[idxNoCero++] = 0;
         }
         return arreglo;
     }
