@@ -11,7 +11,6 @@ public class Main {
 
         reverse(arreglo);
         System.out.print("Arreglo invertido: ");
-
         for(int i=0; i<arreglo.length; i++){
             System.out.print(arreglo[i]+" ");
         }
@@ -50,7 +49,17 @@ public class Main {
         return arreglo;
     }
 
-    /*mover ceros al final*/
-
-
+    /*mover ceros al final (0,10,0,3,12) -> (1,3,12,0,0*)*/
+    public static int[] move0end(int[] arreglo) {
+        int count = 0;
+        for (int i = 0; i < arreglo.length; i++) {
+            if (arreglo[i] != 0) {
+                arreglo[count++] = arreglo[i];
+            }
+        }
+        while (count < arreglo.length) {
+            arreglo[count++] = 0;
+        }
+        return arreglo;
+    }
 }
