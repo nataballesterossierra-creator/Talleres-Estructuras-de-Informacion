@@ -2,12 +2,17 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+
+        System.out.println("=========:=================:================:");
+        System.out.println("             ARREGLOS              ");
+        System.out.println("=========:=================:================:\n");
+
         int[] arreglo = {2, 4, 6, 8, 10};
         System.out.println("Indice del valor 2: " + search(arreglo, 2));
         System.out.println("Indice del valor 1: " + search(arreglo, 1));
         System.out.println("Indice del valor 10: " + search(arreglo, 10));
 
-        System.out.println("Suma total de los elementos: " + suma(arreglo));
+        System.out.println("Suma total de los elementos: " + suma(arreglo)+ "");
 
         reverse(arreglo);
         System.out.print("Arreglo invertido: ");
@@ -15,7 +20,6 @@ public class Main {
             System.out.print(arreglo[i] + " ");
         }
         System.out.println();
-
         int[] arreglocon0 = {0, 1, 0, 3, 12};
         move0end(arreglocon0);
         System.out.print("Arreglo con ceros movidos al final: ");
@@ -23,8 +27,16 @@ public class Main {
             System.out.print(arreglocon0[i] + " ");
         }
         System.out.println();
+        int[] arregloIncompleto = {1, 2, 4, 5};
+        int N = 5;
+        int resultado = encontrarNum(arregloIncompleto, N);
+        System.out.println("El número faltante es: " + resultado); // Imprime 3
 
         // ---------- LISTAS ENLAZADAS ----------
+        System.out.println("=========:=================:================:");
+        System.out.println("             LISTAS ENLAZADAS              ");
+        System.out.println("=========:=================:================:");
+
         System.out.println();
         ListaEnlazada lista = new ListaEnlazada();
         lista.insertAtEnd(1);
@@ -102,6 +114,17 @@ public class Main {
         }
         return arreglo;
     }
+
+    public static int encontrarNum(int[] arr, int N) {
+        long sumaIdeal = (long) N * (N + 1) / 2;
+        long sumaReal = 0;
+        for (int num : arr) {
+            sumaReal += num;
+        }
+
+        return (int) (sumaIdeal - sumaReal);
+    }
+
 
     /* ==========================================
       LISTAS ENLASADAS
